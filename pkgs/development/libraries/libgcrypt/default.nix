@@ -27,6 +27,7 @@ stdenv.mkDerivation rec {
     ++ stdenv.lib.optional stdenv.isDarwin gettext
     ++ stdenv.lib.optional enableCapabilities libcap;
 
+  configurePlatforms = [ "build" "host" ];
   configureFlags = [ "--with-libgpg-error-prefix=${libgpgerror.dev}" ]
    ++ stdenv.lib.optional stdenv.hostPlatform.isMusl "--disable-asm";
 

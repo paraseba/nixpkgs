@@ -53,6 +53,7 @@ stdenv.mkDerivation {
   '';
 
   preConfigure = "patchShebangs .";
+  configurePlatforms = [ "build" "host" ];
   configureFlags =
     lib.optional stdenv.isLinux "--with-default-trust-store-file=/etc/ssl/certs/ca-certificates.crt"
   ++ [
